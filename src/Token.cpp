@@ -36,6 +36,8 @@ Token::Token(int type, std::string v, Position* pos_start)
 
     this->v = v;
 
+
+
 }
 
 Token::~Token()
