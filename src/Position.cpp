@@ -25,3 +25,6 @@ void Position::advance(char current_char){
 Position Position::copy(){
     return Position(idx, ln, col, fn, ftxt);
 }
+Position* Position::copyDynamic(){
+    return new Position(idx, ln, col, fn, ftxt);
+}

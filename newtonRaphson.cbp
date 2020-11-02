@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="src/" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="src/" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,6 +36,8 @@
 		</Compiler>
 		<Unit filename="src/Position.cpp" />
 		<Unit filename="src/Position.h" />
+		<Unit filename="src/Token.cpp" />
+		<Unit filename="src/Token.h" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

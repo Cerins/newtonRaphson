@@ -14,6 +14,7 @@ class Position{
         std::string ftxt;
         void advance(char);
         Position copy();
+        Position* copyDynamic();
 
     protected:
 
