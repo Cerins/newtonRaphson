@@ -28,6 +28,8 @@ Error::Error(Position* pos_start, std::string error_name, std::string details)
     this->pos_end = en;
     this->error_name = error_name;
     this->details = details;
+
+
 }
 
 IllegalCharError::IllegalCharError(Position* pos_start, Position* pos_end, std::string details): Error(pos_start,pos_end,"IllegalCharError",details) {}
