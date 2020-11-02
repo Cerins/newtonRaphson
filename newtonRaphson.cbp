@@ -34,6 +34,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="src/Error.cpp" />
+		<Unit filename="src/Error.h" />
+		<Unit filename="src/Lexer.cpp" />
+		<Unit filename="src/Lexer.h" />
 		<Unit filename="src/Position.cpp" />
 		<Unit filename="src/Position.h" />
 		<Unit filename="src/Token.cpp" />
