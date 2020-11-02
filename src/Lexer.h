@@ -4,17 +4,27 @@
 #include <vector>
 #include "Position.h"
 #include "Token.h"
+#include "Error.h"
+#include <iostream>
+#include <cstring>
 
 
 
 class Lexer
 {
     public:
-        Lexer();
+        Lexer(std::string, std::string);
         virtual ~Lexer();
 
-        Position* pos_start;
-        Position* pos_end;
+        std::string fn;
+        std::string text;
+        Position* pos;
+        char current_char;
+        std::vector<Token*> make_tokens();
+        Token* make_number();
+        Token* make_identifier();
+        Token* make_string();
+        void advance();
 
 
 

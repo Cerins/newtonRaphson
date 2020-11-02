@@ -40,6 +40,10 @@ Token::Token(int type, std::string v, Position* pos_start)
 
 }
 
+std::string Token::toString(){
+    return get_Name[this->type];
+}
+
 Token::~Token()
 {
    delete pos_start;
