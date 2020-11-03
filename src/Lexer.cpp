@@ -65,10 +65,19 @@ std::vector<Token*>  Lexer::make_tokens(){
         }else if(current_char == ':'){
             tokens.push_back(new Token(TT_COLON, pos->copyDynamic()));
             advance();
+        }else if(current_char == ','){
+            tokens.push_back(new Token(TT_COMMA, pos->copyDynamic()));
+            advance();
         }else if(current_char == '='){
             tokens.push_back(new Token(TT_EQ, pos->copyDynamic()));
             advance();
         }else{
+            for(auto t: tokens){
+                std::cout << t->toString() << std::endl;
+                delete t;
+            }
+            tokens.clear();
+
             Position* pos_start = pos->copyDynamic();
             char ch = current_char;
             advance();
