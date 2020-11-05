@@ -21,12 +21,17 @@ class Node{
 class BinOp;
 class UnaryOp;
 class Num;
+class VarAsign;
+class VarAccess;
 
 class AbstractVisitor{
     public:
         virtual void visit(BinOp& node, Context* context) = 0;
         virtual void visit(Num& node, Context* context) = 0;
         virtual void visit(UnaryOp& node, Context* context) = 0;
+
+        virtual void visit(VarAsign& node, Context* context) = 0;
+        virtual void visit(VarAccess& node, Context* context) = 0;
 
 };
 
@@ -87,6 +92,38 @@ class UnaryOp: public Node{
         }
 };
 
+
+class VarAsign: public Node{
+    public:
+        Token* token;
+        Node* value;
+        void accept(AbstractVisitor& v, Context* context) override {
+            v.visit(*this, context);
+        }
+
+        VarAsign(Token* token, Node* value){
+            this->token = token;
+            this->value = value;
+        }
+        virtual ~VarAsign() override{
+            delete value;
+        }
+};
+
+class VarAccess: public Node{
+    public:
+        Token* token;
+        void accept(AbstractVisitor& v, Context* context) override {
+            v.visit(*this, context);
+        }
+
+        VarAccess(Token* token){
+            this->token = token;
+        }
+        virtual ~VarAccess() override{
+            delete token;
+        }
+};
 
 
 #endif // AST_H
