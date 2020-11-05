@@ -10,16 +10,17 @@ int main(){
     while(true){
         std::cout << ">";
         std::string s;
-        std::cin >> s;
+        std::getline(std::cin >> std::ws, s);
         Lexer l("<stdin>", s);
         try{
             std::vector<Token*> tok = l.make_tokens();
 
             for(auto t: tok){
-                std::cout << t->toString() << std::endl;
+                std::cout << t->toString() + " ";
                 delete t;
             }
             tok.clear();
+            std::cout << std::endl;
         }catch(Error& e){
             std::cout << e.what() << std::endl;
         }

@@ -46,7 +46,7 @@ class BinOp: public Node{
         virtual ~BinOp() override{
             delete right;
             delete left;
-            delete token;
+            //delete token;
         }
 
 
@@ -62,7 +62,7 @@ class Num: public Node{
             this->token = tok;
         }
         virtual ~Num() override{
-            delete token;
+            //delete token;
         }
 
 
@@ -82,7 +82,7 @@ class UnaryOp: public Node{
         }
         virtual ~UnaryOp() override{
             delete child;
-            delete token;
+            //delete token;
 
         }
 };

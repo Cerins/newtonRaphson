@@ -23,7 +23,7 @@ Lexer::Lexer(std::string fn, std::string text){
     this->fn = fn;
     this->text = text;
     this->pos = new Position(-1, 0, -1, fn, text);
-    this->current_char = 0;
+    this->current_char = -1;
     this->advance();
 
 }
@@ -35,9 +35,9 @@ Lexer::~Lexer(){
 std::vector<Token*>  Lexer::make_tokens(){
     std::vector<Token*> tokens;
 
-    while(current_char != 0){
+    while(current_char != -1){
 
-        if(current_char == '\t' or current_char == ' '){
+        if(current_char == '\t' || current_char == ' '){
             advance();
         }else if(current_char <='9' && current_char >= '0'){
             tokens.push_back(make_number());
@@ -95,7 +95,7 @@ void Lexer::advance(){
     if(pos->idx < text.length()){
         current_char = text[pos->idx];
     }else{
-        current_char = 0;
+        current_char = -1;
     }
 }
 
@@ -121,10 +121,11 @@ Token* Lexer::make_number(){
 Token* Lexer::make_identifier(){
     std::string id_str = "";
     Position* pos_start = pos->copyDynamic();
-
-    while(current_char != 0 && (isLetter(current_char) || current_char == '_')){
-        id_str += current_char;
-        advance();
+    if(current_char != 0 && (isLetter(current_char) || current_char == '_')){
+        while(current_char != 0 && (isLetter(current_char) || isDigit(current_char) || current_char == '_')){
+            id_str += current_char;
+            advance();
+        }
     }
     int tok_type = TT_IDENTIFIER;
     const char *keywords[1] = {"solve"};
