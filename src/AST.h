@@ -23,6 +23,7 @@ class UnaryOp;
 class Num;
 class VarAsign;
 class VarAccess;
+class Function;
 
 class AbstractVisitor{
     public:
@@ -32,6 +33,8 @@ class AbstractVisitor{
 
         virtual void visit(VarAsign& node, Context* context) = 0;
         virtual void visit(VarAccess& node, Context* context) = 0;
+
+        virtual void visit(Function& node, Context* context) = 0;
 
 };
 
@@ -121,7 +124,24 @@ class VarAccess: public Node{
             this->token = token;
         }
         virtual ~VarAccess() override{
-            delete token;
+            //delete token;
+        }
+};
+
+class Function: public Node{
+    public:
+        Token* token;
+        Node* body = nullptr;
+        void accept(AbstractVisitor& v, Context* context) override {
+            v.visit(*this, context);
+        }
+
+        Function(Token* token, Node* body){
+            this->token = token;
+            this->body = body;
+        }
+        virtual ~Function() override{
+            delete body;
         }
 };
 
