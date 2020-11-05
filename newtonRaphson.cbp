@@ -40,12 +40,16 @@
 		</Compiler>
 		<Unit filename="src/AST.cpp" />
 		<Unit filename="src/AST.h" />
+		<Unit filename="src/Context.cpp" />
+		<Unit filename="src/Context.h" />
 		<Unit filename="src/Error.cpp" />
 		<Unit filename="src/Error.h" />
 		<Unit filename="src/Lexer.cpp" />
 		<Unit filename="src/Lexer.h" />
 		<Unit filename="src/Position.cpp" />
 		<Unit filename="src/Position.h" />
+		<Unit filename="src/SymbolTable.cpp" />
+		<Unit filename="src/SymbolTable.h" />
 		<Unit filename="src/Token.cpp" />
 		<Unit filename="src/Token.h" />
 		<Unit filename="src/main.cpp" />
