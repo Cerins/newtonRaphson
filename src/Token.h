@@ -28,7 +28,7 @@ class Token
 
         Position* pos_start;
         Position* pos_end;
-        const char *get_Name[13] = { "DOUBLE", "PLUS", "MINUS", "MUL", "DIV", "LPAREN", "TT_RPAREN", "TT_EQ", "TT_IDENTIFIER", "TT_KEYWORD", "TT_EOF", "TT_COLON", "TT_COMMA" };
+        std::string get_Name[13] = { "DOUBLE", "PLUS", "MINUS", "MUL", "DIV", "LPAREN", "TT_RPAREN", "TT_EQ", "TT_IDENTIFIER", "TT_KEYWORD", "TT_EOF", "TT_COLON", "TT_COMMA" };
         std::string v;
         int type;
         Token(int, Position*, Position*);

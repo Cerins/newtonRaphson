@@ -41,7 +41,7 @@ Token::Token(int type, std::string v, Position* pos_start)
 }
 
 std::string Token::toString(){
-    return get_Name[this->type];
+    return (get_Name[this->type] + ":" + v);
 }
 
 Token::~Token()
