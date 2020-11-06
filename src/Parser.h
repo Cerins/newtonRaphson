@@ -12,6 +12,7 @@ class Parser
         Parser();
         virtual ~Parser();
 
+        std::vector<Token*> tokens;
         Lexer* lexer;
         Token* current_token;
         int place = 0;

@@ -46,6 +46,8 @@
 		<Unit filename="src/Error.h" />
 		<Unit filename="src/Lexer.cpp" />
 		<Unit filename="src/Lexer.h" />
+		<Unit filename="src/Parser.cpp" />
+		<Unit filename="src/Parser.h" />
 		<Unit filename="src/Position.cpp" />
 		<Unit filename="src/Position.h" />
 		<Unit filename="src/SymbolTable.cpp" />
